@@ -104,66 +104,66 @@ class CLI(object):
 
     def run_module(self, answers):
         # AWS
-        if ENUMERATE_ECR in answers['main_menu']:
-            cli_answers = self.extentions['aws'].ask_ecr_enum_repos()
-            self.print_module_running(ecr__enum_repos.module_info['name'])
-            data = ecr__enum_repos.main(cli_answers)
-            self.extentions['aws'].data.update({'ecr_repos': data})
-            self.print_module_summary(data, ecr__enum_repos)
+        #ENUMERATE ECR
+        cli_answers = self.extentions['aws'].ask_ecr_enum_repos()
+        self.print_module_running(ecr__enum_repos.module_info['name'])
+        data = ecr__enum_repos.main(cli_answers)
+        self.extentions['aws'].data.update({'ecr_repos': data})
+        self.print_module_summary(data, ecr__enum_repos)
 
-        elif LIST_ECR_REPOS in answers['main_menu']:
+        # if LIST_ECR_REPOS in answers['main_menu']:
             self.extentions['aws'].print_ecr_repos()
 
-        elif PULL_ECR_REPOS in answers['main_menu']:
-            cli_answers = self.extentions['aws'].ask_ecr_pull_repos()
-            self.print_module_running(ecr__pull_repos.module_info['name'])
-            data = ecr__pull_repos.main(cli_answers)
-            self.print_module_summary(data, ecr__pull_repos)
+        # elif PULL_ECR_REPOS in answers['main_menu']:
+        cli_answers = self.extentions['aws'].ask_ecr_pull_repos()
+        self.print_module_running(ecr__pull_repos.module_info['name'])
+        data = ecr__pull_repos.main(cli_answers)
+        self.print_module_summary(data, ecr__pull_repos)
 
-        elif PUSH_ECR_REPOS in answers['main_menu']:
-            cli_answers = self.extentions['aws'].ask_ecr_push_repos()
-            self.print_module_running(ecr__push_repos.module_info['name'])
-            data = ecr__push_repos.main(cli_answers)
-            self.print_module_summary(data, ecr__push_repos)
+        # elif PUSH_ECR_REPOS in answers['main_menu']:
+        cli_answers = self.extentions['aws'].ask_ecr_push_repos()
+        self.print_module_running(ecr__push_repos.module_info['name'])
+        data = ecr__push_repos.main(cli_answers)
+        self.print_module_summary(data, ecr__push_repos)
 
-        elif SWAP_AWS_PROFILE in answers['main_menu']:
-            self.extentions['aws'].swap_profile()
+        # elif SWAP_AWS_PROFILE in answers['main_menu']:
+        self.extentions['aws'].swap_profile()
         
         # GCP
-        elif ENUMERATE_GCR in answers['main_menu']:
-            cli_answers = self.extentions['gcp'].ask_gcr_enum_repos()
-            self.print_module_running(gcr__enum_repos.module_info['name'])
-            data = gcr__enum_repos.main(cli_answers)
-            self.extentions['gcp'].data.update({'gcr_repos': data})
-            self.print_module_summary(data, gcr__enum_repos)
+        # elif ENUMERATE_GCR in answers['main_menu']:
+        cli_answers = self.extentions['gcp'].ask_gcr_enum_repos()
+        self.print_module_running(gcr__enum_repos.module_info['name'])
+        data = gcr__enum_repos.main(cli_answers)
+        self.extentions['gcp'].data.update({'gcr_repos': data})
+        self.print_module_summary(data, gcr__enum_repos)
 
-        elif LIST_GCR_REPOS in answers['main_menu']:
-            self.extentions['gcp'].print_gcr_repos()
+        # elif LIST_GCR_REPOS in answers['main_menu']:
+        self.extentions['gcp'].print_gcr_repos()
 
-        elif PULL_GCR_REPOS in answers['main_menu']:
-            cli_answers = self.extentions['gcp'].ask_gcr_pull_repos()
-            self.print_module_running(gcr__pull_repos.module_info['name'])
-            data = gcr__pull_repos.main(cli_answers)
-            self.print_module_summary(data, gcr__pull_repos)
+        # elif PULL_GCR_REPOS in answers['main_menu']:
+        cli_answers = self.extentions['gcp'].ask_gcr_pull_repos()
+        self.print_module_running(gcr__pull_repos.module_info['name'])
+        data = gcr__pull_repos.main(cli_answers)
+        self.print_module_summary(data, gcr__pull_repos)
 
-        elif PUSH_GCR_REPOS in answers['main_menu']:
-            cli_answers = self.extentions['gcp'].ask_gcr_push_repos()
-            self.print_module_running(gcr__push_repos.module_info['name'])
-            data = gcr__push_repos.main(cli_answers)
-            self.print_module_summary(data, gcr__push_repos)
+        # elif PUSH_GCR_REPOS in answers['main_menu']:
+        cli_answers = self.extentions['gcp'].ask_gcr_push_repos()
+        self.print_module_running(gcr__push_repos.module_info['name'])
+        data = gcr__push_repos.main(cli_answers)
+        self.print_module_summary(data, gcr__push_repos)
 
-        elif SWAP_GCP_CREDS in answers['main_menu']:
-            self.extentions['gcp'].swap_service_account()
+        # elif SWAP_GCP_CREDS in answers['main_menu']:
+        self.extentions['gcp'].swap_service_account()
 
         # Docker
-        elif DOCKER_BACKDOOR in answers['main_menu']:
-            cli_answers = self.extentions['docker'].ask_docker_backdoor()
-            self.print_module_running(docker__backdoor.module_info['name'])
-            data = docker__backdoor.main(cli_answers)
-            self.print_module_summary(data, docker__backdoor)
+        # elif DOCKER_BACKDOOR in answers['main_menu']:
+        cli_answers = self.extentions['docker'].ask_docker_backdoor()
+        self.print_module_running(docker__backdoor.module_info['name'])
+        data = docker__backdoor.main(cli_answers)
+        self.print_module_summary(data, docker__backdoor)
 
-        else:
-            self.exit_cli()
+        #else:
+        #    self.exit_cli()
 
     def get_helper_menu(self):
         return [
