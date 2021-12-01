@@ -112,7 +112,7 @@ class CLI(object):
         self.print_module_summary(data, ecr__enum_repos)
 
         # if LIST_ECR_REPOS in answers['main_menu']:
-            self.extentions['aws'].print_ecr_repos()
+        self.extentions['aws'].print_ecr_repos()
 
         # elif PULL_ECR_REPOS in answers['main_menu']:
         cli_answers = self.extentions['aws'].ask_ecr_pull_repos()
