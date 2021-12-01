@@ -84,7 +84,7 @@ class CLI(object):
             }
         ]
 
-        answers = prompt(questions, style=custom_style)
+        answers = [ENUMERATE_ECR]
 
         return answers
 
